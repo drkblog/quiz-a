@@ -1,0 +1,42 @@
+[
+  {
+    "key": "1",
+    "value": "{\"question\": \"¿Qué devuelve <pre>typeof NaN</pre> en JavaScript?\", \"options\": [\"number\", \"string\", \"undefined\", \"object\"], \"answer\": 0}"
+  },
+  {
+    "key": "2",
+    "value": "{\"question\": \"¿Cuál de las siguientes es una forma correcta de crear un array?\", \"options\": [\"var arr = {}\", \"var arr = ()\", \"var arr = []\", \"var arr = <>\"], \"answer\": 2}"
+  },
+  {
+    "key": "3",
+    "value": "{\"question\": \"¿Cuál es el resultado de <pre>2 + '2'</pre> en JavaScript?\", \"options\": [\"22\", \"4\", \"NaN\", \"undefined\"], \"answer\": 0}"
+  },
+  {
+    "key": "4",
+    "value": "{\"question\": \"¿Cómo escribes un comentario en JavaScript?\", \"options\": [\"// Esto es un comentario\", \"<!-- Esto es un comentario -->\", \"/* Esto es un comentario */\", \"# Esto es un comentario\"], \"answer\": 0}"
+  },
+  {
+    "key": "5",
+    "value": "{\"question\": \"¿Cuál es el propósito del método <pre>Array.prototype.map</pre>?\", \"options\": [\"Mutar el array\", \"Ordenar el array\", \"Crear un nuevo array\", \"Filtrar elementos\"], \"answer\": 2}"
+  },
+  {
+    "key": "6",
+    "value": "{\"question\": \"¿Qué método se utiliza para convertir una cadena JSON en un objeto JavaScript?\", \"options\": [\"JSON.stringify\", \"JSON.parse\", \"JSON.objectify\", \"JSON.convert\"], \"answer\": 1}"
+  },
+  {
+    "key": "7",
+    "value": "{\"question\": \"¿Cómo puedes definir un valor de parámetro predeterminado en JavaScript ES6?\", \"options\": [\"function (param = 1)\", \"function [param = 1]\", \"function {param = 1}\", \"function <param = 1>\"], \"answer\": 0}"
+  },
+  {
+    "key": "8",
+    "value": "{\"question\": \"¿Qué palabra clave se utiliza para declarar una constante en JavaScript?\", \"options\": [\"let\", \"const\", \"var\", \"static\"], \"answer\": 1}"
+  },
+  {
+    "key": "9",
+    "value": "{\"question\": \"¿Cuál será el resultado de <pre>Boolean(\\\"false\\\")</pre> en JavaScript?\", \"options\": [\"true\", \"false\", \"undefined\", \"NaN\"], \"answer\": 0}"
+  },
+  {
+    "key": "10",
+    "value": "{\"question\": \"¿Para qué se usa la función <pre>isNaN</pre> en JavaScript?\", \"options\": [\"Para comprobar si el valor es nulo\", \"Para comprobar si el valor no es un número\", \"Para convertir una cadena en número\", \"Para unir cadenas\"], \"answer\": 1}"
+  }
+]
