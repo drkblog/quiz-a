@@ -4,7 +4,9 @@ const HTTP_SERVER_ERROR = 500;
 const QUIZA_COOKIE = 'quizA';
 
 const originHeader = {
-  'Access-Control-Allow-Origin': 'https://www.drk.com.ar'
+  'Access-Control-Allow-Origin': 'https://drk.com.ar',
+  'Access-Control-Allow-Headers': 'https://drk.com.ar',
+  'Access-Control-Allow-Credentials': true
 };
 const corsHeaders = {
   ...originHeader,
@@ -80,7 +82,7 @@ function getCookie(value: number): string {
   const secure = true; // Use secure if over HTTPS
   const httpOnly = true; // Prevent client-side JavaScript from accessing the cookie
 
-  return `${cookieName}=${value}; Max-Age=${maxAge}; Path=${path}; Domain=${domain}; ${secure ? 'Secure;' : ''} ${httpOnly ? 'HttpOnly;' : ''}`;
+  return `${cookieName}=${value}; Max-Age=${maxAge}; Path=${path}; Domain=${domain}; ${secure ? 'Secure;' : ''} ${httpOnly ? 'HttpOnly;' : ''}; SameSite=None`;
 }
 
 function parseCookies(cookieHeader: string): { [key: string]: string } {
