@@ -1,7 +1,7 @@
 [
   {
     "key": "1",
-    "value": "{\"question\": \"¿Qué devuelve <pre>typeof NaN</pre> en JavaScript?\", \"options\": [\"number\", \"string\", \"undefined\", \"object\"], \"answer\": 0}"
+    "value": "{\"question\": \"¿Qué devuelve <code>typeof NaN</code> en JavaScript?\", \"options\": [\"number\", \"string\", \"undefined\", \"object\"], \"answer\": 0}"
   },
   {
     "key": "2",
@@ -9,7 +9,7 @@
   },
   {
     "key": "3",
-    "value": "{\"question\": \"¿Cuál es el resultado de <pre>2 + '2'</pre> en JavaScript?\", \"options\": [\"22\", \"4\", \"NaN\", \"undefined\"], \"answer\": 0}"
+    "value": "{\"question\": \"¿Cuál es el resultado de <code>2 + '2'</code> en JavaScript?\", \"options\": [\"22\", \"4\", \"NaN\", \"undefined\"], \"answer\": 0}"
   },
   {
     "key": "4",
@@ -17,7 +17,7 @@
   },
   {
     "key": "5",
-    "value": "{\"question\": \"¿Cuál es el propósito del método <pre>Array.prototype.map</pre>?\", \"options\": [\"Mutar el array\", \"Ordenar el array\", \"Crear un nuevo array\", \"Filtrar elementos\"], \"answer\": 2}"
+    "value": "{\"question\": \"¿Cuál es el propósito del método <code>Array.prototype.map</code>?\", \"options\": [\"Mutar el array\", \"Ordenar el array\", \"Crear un nuevo array\", \"Filtrar elementos\"], \"answer\": 2}"
   },
   {
     "key": "6",
@@ -33,10 +33,10 @@
   },
   {
     "key": "9",
-    "value": "{\"question\": \"¿Cuál será el resultado de <pre>Boolean(\\\"false\\\")</pre> en JavaScript?\", \"options\": [\"true\", \"false\", \"undefined\", \"NaN\"], \"answer\": 0}"
+    "value": "{\"question\": \"¿Cuál será el resultado de <code>Boolean(\\\"false\\\")</code> en JavaScript?\", \"options\": [\"true\", \"false\", \"undefined\", \"NaN\"], \"answer\": 0}"
   },
   {
     "key": "10",
-    "value": "{\"question\": \"¿Para qué se usa la función <pre>isNaN</pre> en JavaScript?\", \"options\": [\"Para comprobar si el valor es nulo\", \"Para comprobar si el valor no es un número\", \"Para convertir una cadena en número\", \"Para unir cadenas\"], \"answer\": 1}"
+    "value": "{\"question\": \"¿Para qué se usa la función <code>isNaN</code> en JavaScript?\", \"options\": [\"Para comprobar si el valor es nulo\", \"Para comprobar si el valor no es un número\", \"Para convertir una cadena en número\", \"Para unir cadenas\"], \"answer\": 1}"
   }
 ]
