@@ -5,7 +5,7 @@
   },
   {
     "key": "2",
-    "value": "{\"question\": \"¿Cuál de las siguientes es una forma correcta de crear un array?\", \"options\": [\"var arr = {}\", \"var arr = ()\", \"var arr = []\", \"var arr = <>\"], \"answer\": 2}"
+    "value": "{\"question\": \"¿Cuál de las siguientes es una forma correcta de crear un array?\", \"options\": [\"<code>var arr = {}</code>\", \"<code>var arr = ()</code>\", \"<code>var arr = []</code>\", \"<code>var arr = <></code>\"], \"answer\": 2}"
   },
   {
     "key": "3",
@@ -13,7 +13,7 @@
   },
   {
     "key": "4",
-    "value": "{\"question\": \"¿Cómo escribes un comentario en JavaScript?\", \"options\": [\"// Esto es un comentario\", \"<!-- Esto es un comentario -->\", \"/* Esto es un comentario */\", \"# Esto es un comentario\"], \"answer\": 0}"
+    "value": "{\"question\": \"¿Cómo escribes un comentario en JavaScript?\", \"options\": [\"<code>// Esto es un comentario</code>\", \"<code><!-- Esto es un comentario --></code>\", \"<code>/* Esto es un comentario */</code>\", \"<code># Esto es un comentario</code>\"], \"answer\": 0}"
   },
   {
     "key": "5",
@@ -25,11 +25,11 @@
   },
   {
     "key": "7",
-    "value": "{\"question\": \"¿Cómo puedes definir un valor de parámetro predeterminado en JavaScript ES6?\", \"options\": [\"function (param = 1)\", \"function [param = 1]\", \"function {param = 1}\", \"function <param = 1>\"], \"answer\": 0}"
+    "value": "{\"question\": \"¿Cómo puedes definir un valor de parámetro predeterminado en JavaScript ES6?\", \"options\": [\"<code>function (param = 1)</code>\", \"<code>function [param = 1]</code>\", \"<code>function {param = 1}</code>\", \"<code>function <param = 1></code>\"], \"answer\": 0}"
   },
   {
     "key": "8",
-    "value": "{\"question\": \"¿Qué palabra clave se utiliza para declarar una constante en JavaScript?\", \"options\": [\"let\", \"const\", \"var\", \"static\"], \"answer\": 1}"
+    "value": "{\"question\": \"¿Qué palabra clave se utiliza para declarar una constante en JavaScript?\", \"options\": [\"<code>let</code>\", \"<code>const</code>\", \"<code>var</code>\", \"<code>static</code>\"], \"answer\": 1}"
   },
   {
     "key": "9",

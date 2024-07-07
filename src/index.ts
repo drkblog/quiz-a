@@ -5,8 +5,8 @@ const QUIZA_COOKIE = 'quizA';
 
 const originHeader = {
   'Access-Control-Allow-Origin': 'https://drk.com.ar',
-  'Access-Control-Allow-Headers': 'https://drk.com.ar',
-  'Access-Control-Allow-Credentials': true
+  'Access-Control-Allow-Headers': '*',
+  'Access-Control-Allow-Credentials': 'true'
 };
 const corsHeaders = {
   ...originHeader,
