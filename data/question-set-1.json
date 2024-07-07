@@ -38,5 +38,45 @@
   {
     "key": "10",
     "value": "{\"question\": \"¿Para qué se usa la función <code>isNaN</code> en JavaScript?\", \"options\": [\"Para comprobar si el valor es nulo\", \"Para comprobar si el valor no es un número\", \"Para convertir una cadena en número\", \"Para unir cadenas\"], \"answer\": 1}"
+  },
+  {
+    "key": "11",
+    "value": "{\"question\": \"¿Qué significa la sintaxis <code>{ ...obj1, ...obj2 }</code> en ES6?\", \"options\": [\"Combinar dos objetos\", \"Copiar propiedades de <code>obj2</code> a <code>obj1</code>\", \"Crear un array con propiedades de <code>obj1</code> y <code>obj2</code>\", \"Ninguna de las anteriores\"], \"answer\": 0}"
+  },
+  {
+    "key": "12",
+    "value": "{\"question\": \"¿Qué diferencia hay entre <code>==</code> y <code>===</code> en JavaScript?\", \"options\": [\"Ninguna, son equivalentes\", \"<code>==</code> compara tipos y valores, <code>===</code> solo valores\", \"<code>==</code> compara solo valores, <code>===</code> compara tipos y valores\", \"<code>==</code> es para números, <code>===</code> es para strings\"], \"answer\": 2}"
+  },
+  {
+    "key": "13",
+    "value": "{\"question\": \"¿Cuál es el propósito del método <code>Promise.all</code> en JavaScript?\", \"options\": [\"Ejecutar múltiples promesas en serie\", \"Ejecutar múltiples promesas en paralelo\", \"Cancelar una promesa\", \"Ninguna de las anteriores\"], \"answer\": 1}"
+  },
+  {
+    "key": "14",
+    "value": "{\"question\": \"¿Qué devuelve la expresión <code>[...\\\"JavaScript\\\"].filter(char => char !== \\\"a\\\")</code>?\", \"options\": [\"[\\\"J\\\", \\\"v\\\", \\\"S\\\", \\\"c\\\", \\\"r\\\", \\\"i\\\", \\\"p\\\", \\\"t\\\"]\", \"[\\\"J\\\", \\\"a\\\", \\\"v\\\", \\\"a\\\", \\\"S\\\", \\\"c\\\", \\\"r\\\", \\\"i\\\", \\\"p\\\", \\\"t\\\"]\", \"[\\\"J\\\", \\\"S\\\", \\\"c\\\", \\\"r\\\", \\\"i\\\", \\\"p\\\", \\\"t\\\"]\", \"Ninguna de las anteriores\"], \"answer\": 0}"
+  },
+  {
+    "key": "15",
+    "value": "{\"question\": \"¿Cómo puedes evitar la creación de propiedades enumerables en un objeto?\", \"options\": [\"Usando <code>Object.freeze</code>\", \"Usando <code>Object.defineProperty</code> con <code>enumerable: false</code>\", \"Usando <code>Object.seal</code>\", \"Ninguna de las anteriores\"], \"answer\": 1}"
+  },
+  {
+    "key": "16",
+    "value": "{\"question\": \"¿Cuál es el propósito del operador <code>??</code> en JavaScript?\", \"options\": [\"Verificar si una variable es <code>null</code>\", \"Operar con números <code>null</code>\", \"Retorna <code>true</code> si la cadena es vacía\", \"Asignar valor por defecto si el valor es <code>null</code> o <code>undefined</code>\", \"Ninguna de las anteriores\"], \"answer\": 3}"
+  },
+  {
+    "key": "17",
+    "value": "{\"question\": \"¿Cuál es la diferencia entre <code>Array.prototype.forEach</code> y <code>Array.prototype.map</code>?\", \"options\": [\"<code>forEach</code> devuelve un nuevo array, <code>map</code> no\", \"<code>map</code> devuelve un nuevo array, <code>forEach</code> no\", \"<code>forEach</code> y <code>map</code> son idénticos\", \"Ninguna de las anteriores\"], \"answer\": 1}"
+  },
+  {
+    "key": "18",
+    "value": "{\"question\": \"¿Cuál es el resultado de la expresión <code>[1, 2, 3] + [4, 5, 6]</code>?\", \"options\": [\"[1, 2, 3, 4, 5, 6]\", \"\\\"1,2,34,5,6\\\"\", \"NaN\", \"[\\\"1, 2, 3\\\", \\\"4, 5, 6\\\"]\"], \"answer\": 1}"
+  },
+  {
+    "key": "19",
+    "value": "{\"question\": \"¿Cómo puedes crear un objeto sin prototipo en JavaScript?\", \"options\": [\"Usando <code>Object.create(null)</code>\", \"Usando <code>Object.prototype = null</code>\", \"Usando <code>new Object()</code>\", \"Usando <code>{}</code>\"], \"answer\": 0}"
+  },
+  {
+    "key": "20",
+    "value": "{\"question\": \"¿Qué método puedes usar para convertir un array en un objeto en JavaScript?\", \"options\": [\"<code>Array.toObject()</code>\", \"<code>Array.prototype.toObject()</code>\", \"<code>Object.fromEntries()</code>\", \"<code>Array.prototype.entries()</code>\"], \"answer\": 2}"
   }
 ]
