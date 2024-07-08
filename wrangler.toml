@@ -6,7 +6,7 @@ compatibility_flags = ["nodejs_compat"]
 type = "javascript"
 
 kv_namespaces = [
-  { binding = "KV_QUIZA_QUESTION", id = "7d2a037cabab45d69b91c20a11f0010b" }
+  { binding = "KV_QUIZA_QUESTION", preview_id = "ec42072d54f84e93831c3e3e119bc525", id = "7d2a037cabab45d69b91c20a11f0010b" }
 ]
 
 # Automatically place your workloads in an optimal location to minimize latency.

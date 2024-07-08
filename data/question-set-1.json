@@ -1,7 +1,7 @@
 [
   {
     "key": "1",
-    "value": "{\"question\": \"¿Qué devuelve <code>typeof NaN</code> en JavaScript?\", \"options\": [\"number\", \"string\", \"undefined\", \"object\"], \"answer\": 0}"
+    "value": "{\"question\": \"¿Qué devuelve <code class=\\\"language-javascript\\\">typeof NaN</code> en JavaScript?\", \"options\": [\"number\", \"string\", \"undefined\", \"object\"], \"answer\": 0}"
   },
   {
     "key": "2",
@@ -13,11 +13,11 @@
   },
   {
     "key": "4",
-    "value": "{\"question\": \"¿Cómo escribes un comentario en JavaScript?\", \"options\": [\"<code>// Esto es un comentario</code>\", \"<code><!-- Esto es un comentario --></code>\", \"<code>/* Esto es un comentario */</code>\", \"<code># Esto es un comentario</code>\"], \"answer\": 0}"
+    "value": "{\"question\": \"¿Cómo escribes un comentario en JavaScript?\", \"options\": [\"<code>// Esto es un comentario</code>\", \"<code>&lt;!-- Esto es un comentario --&gt;</code>\", \"<code>/ Esto es un comentario /</code>\", \"<code># Esto es un comentario</code>\"], \"answer\": 0}"
   },
   {
     "key": "5",
-    "value": "{\"question\": \"¿Cuál es el propósito del método <code>Array.prototype.map</code>?\", \"options\": [\"Mutar el array\", \"Ordenar el array\", \"Crear un nuevo array\", \"Filtrar elementos\"], \"answer\": 2}"
+    "value": "{\"question\": \"¿Cuál es el propósito del método <code>Array.prototype.map</code>?\", \"options\": [\"Mutar el array\", \"Ordenar el array\", \"Crear un nuevo array potencialmente modificando cada elemento\", \"Filtrar elementos\"], \"answer\": 2}"
   },
   {
     "key": "6",
@@ -25,7 +25,7 @@
   },
   {
     "key": "7",
-    "value": "{\"question\": \"¿Cómo puedes definir un valor de parámetro predeterminado en JavaScript ES6?\", \"options\": [\"<code>function (param = 1)</code>\", \"<code>function [param = 1]</code>\", \"<code>function {param = 1}</code>\", \"<code>function <param = 1></code>\"], \"answer\": 0}"
+    "value": "{\"question\": \"¿Cómo puedes definir un valor de parámetro predeterminado en JavaScript ES6?\", \"options\": [\"<code>function (param = 1)</code>\", \"<code>function [param = 1]</code>\", \"<code>function {param = 1}</code>\", \"<code>function &lt;param = 1&gt;</code>\"], \"answer\": 0}"
   },
   {
     "key": "8",
@@ -65,7 +65,7 @@
   },
   {
     "key": "17",
-    "value": "{\"question\": \"¿Cuál es la diferencia entre <code>Array.prototype.forEach</code> y <code>Array.prototype.map</code>?\", \"options\": [\"<code>forEach</code> devuelve un nuevo array, <code>map</code> no\", \"<code>map</code> devuelve un nuevo array, <code>forEach</code> no\", \"<code>forEach</code> y <code>map</code> son idénticos\", \"Ninguna de las anteriores\"], \"answer\": 1}"
+    "value": "{\"question\": \"¿Cuál de estas afirmaciones es correcta para <code>Array.prototype.forEach</code> y <code>Array.prototype.map</code>?\", \"options\": [\"<code>forEach</code> devuelve un nuevo array, <code>map</code> no\", \"<code>map</code> devuelve un nuevo array, <code>forEach</code> no\", \"<code>forEach</code> y <code>map</code> son idénticos\", \"Ninguna de las anteriores\"], \"answer\": 1}"
   },
   {
     "key": "18",
@@ -77,6 +77,6 @@
   },
   {
     "key": "20",
-    "value": "{\"question\": \"¿Qué método puedes usar para convertir un array en un objeto en JavaScript?\", \"options\": [\"<code>Array.toObject()</code>\", \"<code>Array.prototype.toObject()</code>\", \"<code>Object.fromEntries()</code>\", \"<code>Array.prototype.entries()</code>\"], \"answer\": 2}"
+    "value": "{\"question\": \"¿Qué método puedes usar para convertir un Map en un objeto en JavaScript?\", \"options\": [\"<code>Array.toObject()</code>\", \"<code>Array.prototype.toObject()</code>\", \"<code>Object.fromEntries()</code>\", \"<code>Array.prototype.entries()</code>\"], \"answer\": 2}"
   }
 ]

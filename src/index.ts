@@ -3,20 +3,9 @@ const HTTP_NOT_FOUND = 404;
 const HTTP_SERVER_ERROR = 500;
 const QUIZA_COOKIE = 'quizA';
 
-const originHeader = {
-  'Access-Control-Allow-Origin': 'https://drk.com.ar',
-  'Access-Control-Allow-Headers': '*',
-  'Access-Control-Allow-Credentials': 'true'
-};
-const corsHeaders = {
-  ...originHeader,
-  'Access-Control-Allow-Methods': 'GET,HEAD,POST,OPTIONS',
-  'Access-Control-Max-Age': '86400',
-};
-
-
 export interface Env {
   KV_QUIZA_QUESTION: KVNamespace;
+  WORKER_ENV: string;
 }
 
 interface QuizQuestion {
@@ -30,7 +19,7 @@ export default {
 
     // Handle CORS preflight requests
     if (request.method === 'OPTIONS') {
-      return corsAwareResponse("");
+      return corsAwareResponse(env, "");
     }
 
     // Cookies
@@ -44,24 +33,34 @@ export default {
       const value = await env.KV_QUIZA_QUESTION.get(`${key}`);
 
       if (value === null) {
-        return corsAwareResponse('Key not found', HTTP_NOT_FOUND);
+        return corsAwareResponse(env, 'Key not found', HTTP_NOT_FOUND);
       }
 
       const quizQuestion: QuizQuestion = JSON.parse(value);
 
-      return corsAwareResponse(JSON.stringify(quizQuestion, null, 2), HTTP_OK, getCookie(key));
+      return corsAwareResponse(env, JSON.stringify(quizQuestion, null, 2), HTTP_OK, getCookie(key));
     } catch (error) {
       console.error('Error retrieving from KV:', error);
-      return corsAwareResponse('Internal Server Error', HTTP_SERVER_ERROR);
+      return corsAwareResponse(env, 'Internal Server Error', HTTP_SERVER_ERROR);
     }
 	},
 } satisfies ExportedHandler<Env>;
 
 function corsAwareResponse(
+  env: Env,
   body?: BodyInit, 
   status: number = HTTP_OK,
   cookie: string = ''
 ): Response {
+  const originHeader = (env.WORKER_ENV === 'local') ? {
+    'Access-Control-Allow-Origin': 'http://localhost:1313',
+    'Access-Control-Allow-Headers': '*',
+    'Access-Control-Allow-Credentials': 'true'
+  } : {
+    'Access-Control-Allow-Origin': 'https://drk.com.ar',
+    'Access-Control-Allow-Headers': '*',
+    'Access-Control-Allow-Credentials': 'true'
+  };
   const headers = {
     ...originHeader,
     'Content-Type': 'application/json',
