@@ -1,0 +1,42 @@
+[
+  {
+    "key": "21",
+    "value": "{\"question\": \"What is the output of <code>console.log(typeof typeof 1)</code>?\", \"options\": [\"<code>number</code>\", \"<code>string</code>\", \"<code>undefined</code>\", \"<code>object</code>\"], \"answer\": 1}"
+  },
+  {
+    "key": "22",
+    "value": "{\"question\": \"Which method is used to remove the last element from an array in JavaScript?\", \"options\": [\"<code>pop()</code>\", \"<code>shift()</code>\", \"<code>splice()</code>\", \"<code>slice()</code>\"], \"answer\": 0}"
+  },
+  {
+    "key": "23",
+    "value": "{\"question\": \"What is the result of <code>3 + 4 + '5'</code> in JavaScript?\", \"options\": [\"<code>12</code>\", \"<code>345</code>\", \"<code>75</code>\", \"<code>NaN</code>\"], \"answer\": 2}"
+  },
+  {
+    "key": "24",
+    "value": "{\"question\": \"Which of the following is NOT a valid way to declare a function in JavaScript?\", \"options\": [\"<code>function myFunc() {}</code>\", \"<code>const myFunc = function() {}</code>\", \"<code>const myFunc = () => {}</code>\", \"<code>function = myFunc() {}</code>\"], \"answer\": 3}"
+  },
+  {
+    "key": "25",
+    "value": "{\"question\": \"What does the <code>Object.seal()</code> method do in JavaScript?\", \"options\": [\"Prevents adding new properties\", \"Prevents modifying existing properties\", \"Prevents deleting properties\", \"All of the above\"], \"answer\": 0}"
+  },
+  {
+    "key": "26",
+    "value": "{\"question\": \"What is the output of <code>console.log(0.1 + 0.2 === 0.3)</code>?\", \"options\": [\"<code>true</code>\", \"<code>false</code>\", \"<code>undefined</code>\"], \"answer\": 1}"
+  },
+  {
+    "key": "27",
+    "value": "{\"question\": \"Which method is used to add one or more elements to the beginning of an array?\", \"options\": [\"<code>push()</code>\", \"<code>unshift()</code>\", \"<code>concat()</code>\", \"<code>splice()</code>\"], \"answer\": 1}"
+  },
+  {
+    "key": "28",
+    "value": "{\"question\": \"What is the purpose of the <code>Symbol</code> data type in JavaScript?\", \"options\": [\"To create unique identifiers\", \"To represent mathematical symbols\", \"To define constants\", \"To create private properties\"], \"answer\": 0}"
+  },
+  {
+    "key": "29",
+    "value": "{\"question\": \"What is the output of <code>console.log(1 < 2 < 3)</code> and <code>console.log(3 > 2 > 1)</code>?\", \"options\": [\"<code>true true</code>\", \"<code>true false</code>\", \"<code>false true</code>\", \"<code>false false</code>\"], \"answer\": 1}"
+  },
+  {
+    "key": "30",
+    "value": "{\"question\": \"Which of the following is NOT a valid JavaScript module system?\", \"options\": [\"CommonJS\", \"AMD\", \"UMD\", \"ES6 Modules\", \"XML Modules\"], \"answer\": 4}"
+  }
+]

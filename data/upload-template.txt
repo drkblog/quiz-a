@@ -1,4 +1,0 @@
-curl -X PUT "https://api.cloudflare.com/client/v4/accounts/bc068512994d36dd85f41c4c0b27c489/storage/kv/namespaces/7d2a037cabab45d69b91c20a11f0010b/bulk" \
-  -H "Authorization: Bearer 90rl_2Qvzl9joBbAlCtFA2HZBIoukFWBIVmyKmcq" \
-  -H "Content-Type: application/json" \
-  --data-binary @question-set-1.json
