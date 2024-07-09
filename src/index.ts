@@ -1,17 +1,25 @@
+import { QuizaCookie, createQuizaCookie, retrieveState } from "./cookie";
+
 const HTTP_OK = 200;
 const HTTP_NOT_FOUND = 404;
 const HTTP_SERVER_ERROR = 500;
-const QUIZA_COOKIE = 'quizA';
 
 export interface Env {
   KV_QUIZA_QUESTION: KVNamespace;
   WORKER_ENV: string;
 }
 
-interface QuizQuestion {
+interface QuizaQuestion {
   question: string;
   options: string[];
   answer: number;
+}
+
+interface QuizaResponse {
+  completed: boolean;
+  question: QuizaQuestion | null;
+  correct: number;
+  total: number;
 }
 
 export default {
@@ -23,28 +31,54 @@ export default {
     }
 
     // Cookies
-    const cookieHeader = request.headers.get('Cookie') || '';
-    const cookies = parseCookies(cookieHeader);
-    const previousKey = (cookies[QUIZA_COOKIE] != null) ? cookies[QUIZA_COOKIE] : '0';
+    const cookieHeader: string = request.headers.get('Cookie') || '';
+    const state = retrieveState(cookieHeader);
 
-    const key = parseInt(previousKey) + 1;
-    try {
-      // Attempt to get the value from KV
-      const value = await env.KV_QUIZA_QUESTION.get(`${key}`);
-
-      if (value === null) {
-        return corsAwareResponse(env, 'Key not found', HTTP_NOT_FOUND);
+    if (request.method === 'PUT') {
+      state.key++;
+      state.total++;
+      if (isCorrect(request)) {
+        state.correct++;
       }
-
-      const quizQuestion: QuizQuestion = JSON.parse(value);
-
-      return corsAwareResponse(env, JSON.stringify(quizQuestion, null, 2), HTTP_OK, getCookie(key));
-    } catch (error) {
-      console.error('Error retrieving from KV:', error);
-      return corsAwareResponse(env, 'Internal Server Error', HTTP_SERVER_ERROR);
+      return corsAwareResponse(env, "", HTTP_OK, createQuizaCookie(state, getWorkerDomain(env.WORKER_ENV)));
+    } else {
+      try {
+        const jsonText: string | null = await env.KV_QUIZA_QUESTION.get(`${state.key}`);
+        if (jsonText === null) {
+          const response: QuizaResponse = {
+            completed: true,
+            question: null,
+            correct: state.correct,
+            total: state.total
+          }
+          return corsAwareResponse(env, JSON.stringify(response), HTTP_OK);
+        }
+        const quizQuestion: QuizaQuestion = JSON.parse(jsonText);
+        const response: QuizaResponse = {
+          completed: false,
+          question: quizQuestion,
+          correct: state.correct,
+          total: state.total
+        }
+        return corsAwareResponse(env, JSON.stringify(response), HTTP_OK, createQuizaCookie(state, getWorkerDomain(env.WORKER_ENV)));
+      } catch (error) {
+        console.error('Error retrieving from KV:', error);
+        return corsAwareResponse(env, 'Internal Server Error', HTTP_SERVER_ERROR);
+      }
     }
 	},
 } satisfies ExportedHandler<Env>;
+
+function isCorrect(request: Request): boolean {
+  const url = new URL(request.url);
+  const pattern = new URLPattern({ pathname: '/:result' });
+  const match = pattern.exec(url);
+  if (match) {
+    const result = match.pathname.groups.result;
+    return result === 'correct';
+  }
+  return false;
+}
 
 function corsAwareResponse(
   env: Env,
@@ -52,12 +86,9 @@ function corsAwareResponse(
   status: number = HTTP_OK,
   cookie: string = ''
 ): Response {
-  const originHeader = (env.WORKER_ENV === 'local') ? {
-    'Access-Control-Allow-Origin': 'http://localhost:1313',
-    'Access-Control-Allow-Headers': '*',
-    'Access-Control-Allow-Credentials': 'true'
-  } : {
-    'Access-Control-Allow-Origin': 'https://drk.com.ar',
+  const originHeader = {
+    'Access-Control-Allow-Origin': (env.WORKER_ENV === 'local') ? 'http://localhost:1313' : 'https://drk.com.ar',
+    'Access-Control-Allow-Methods': 'GET,HEAD,PUT,OPTIONS',
     'Access-Control-Allow-Headers': '*',
     'Access-Control-Allow-Credentials': 'true'
   };
@@ -73,27 +104,6 @@ function corsAwareResponse(
   });
 }
 
-function getCookie(value: number): string {
-  const cookieName = QUIZA_COOKIE;
-  const maxAge = 3600; // Cookie will expire in 1 hour (3600 seconds)
-  const path = "/";
-  const domain = "quiz-a.drkbugs.workers.dev";
-  const secure = true; // Use secure if over HTTPS
-  const httpOnly = true; // Prevent client-side JavaScript from accessing the cookie
-
-  return `${cookieName}=${value}; Max-Age=${maxAge}; Path=${path}; Domain=${domain}; ${secure ? 'Secure;' : ''} ${httpOnly ? 'HttpOnly;' : ''}; SameSite=None`;
-}
-
-function parseCookies(cookieHeader: string): { [key: string]: string } {
-  const cookies: { [key: string]: string } = {};
-  const pairs = cookieHeader.split(/;\s*/);
-  
-  pairs.forEach(pair => {
-    const [name, value] = pair.split('=');
-    if (name && value) {
-      cookies[decodeURIComponent(name.trim())] = decodeURIComponent(value.trim());
-    }
-  });
-
-  return cookies;
+function getWorkerDomain(workerEnvironment: string) {
+  return (workerEnvironment === 'local') ? '127.0.0.1' : 'quiz-a.drkbugs.workers.dev';
 }
