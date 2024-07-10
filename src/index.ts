@@ -1,23 +1,16 @@
-import { QuizaCookie, createQuizaCookie, retrieveState } from "./cookie";
+import { Env, QuestionNotFoundError } from "./quiza";
+import { QuizaQuestion, retrieveQuestion } from "./question";
+import { QuizaState, AnswerResult, createQuizaCookie, retrieveState } from "./state";
 
 const HTTP_OK = 200;
 const HTTP_NOT_FOUND = 404;
 const HTTP_SERVER_ERROR = 500;
 
-export interface Env {
-  KV_QUIZA_QUESTION: KVNamespace;
-  WORKER_ENV: string;
-}
 
-interface QuizaQuestion {
-  question: string;
-  options: string[];
-  answer: number;
-}
-
-interface QuizaResponse {
+interface QuizaClientState {
   completed: boolean;
-  question: QuizaQuestion | null;
+  question: string | null;
+  options: string[] | null;
   correct: number;
   total: number;
 }
@@ -32,52 +25,50 @@ export default {
 
     // Cookies
     const cookieHeader: string = request.headers.get('Cookie') || '';
-    const state = retrieveState(cookieHeader);
+    const state: QuizaState = retrieveState(env, cookieHeader);
 
     if (request.method === 'PUT') {
-      state.key++;
-      state.total++;
-      if (isCorrect(request)) {
-        state.correct++;
-      }
-      return corsAwareResponse(env, "", HTTP_OK, createQuizaCookie(state, getWorkerDomain(env.WORKER_ENV)));
+      const answer: number = getAnswerIndexFromUrl(request);
+      const answerResult: AnswerResult = await state.check(env, answer);
+      return corsAwareResponse(env, JSON.stringify(answerResult), HTTP_OK, createQuizaCookie(state, getWorkerDomain(env.WORKER_ENV)));
     } else {
       try {
-        const jsonText: string | null = await env.KV_QUIZA_QUESTION.get(`${state.key}`);
-        if (jsonText === null) {
-          const response: QuizaResponse = {
-            completed: true,
-            question: null,
-            correct: state.correct,
-            total: state.total
-          }
-          return corsAwareResponse(env, JSON.stringify(response), HTTP_OK);
-        }
-        const quizQuestion: QuizaQuestion = JSON.parse(jsonText);
-        const response: QuizaResponse = {
+        const quizQuestion: QuizaQuestion = await retrieveQuestion(env, state.key);
+        const response: QuizaClientState = {
           completed: false,
-          question: quizQuestion,
+          question: quizQuestion.question,
+          options: quizQuestion.options,
           correct: state.correct,
           total: state.total
         }
         return corsAwareResponse(env, JSON.stringify(response), HTTP_OK, createQuizaCookie(state, getWorkerDomain(env.WORKER_ENV)));
       } catch (error) {
-        console.error('Error retrieving from KV:', error);
-        return corsAwareResponse(env, 'Internal Server Error', HTTP_SERVER_ERROR);
+        if (error instanceof QuestionNotFoundError) {
+          const response: QuizaClientState = {
+            completed: true,
+            question: null,
+            options: null,
+            correct: state.correct,
+            total: state.total
+          }
+          return corsAwareResponse(env, JSON.stringify(response), HTTP_OK);
+        } else {
+          console.error('Error retrieving from KV:', error);
+          return corsAwareResponse(env, 'Internal Server Error', HTTP_SERVER_ERROR);
+        }
       }
     }
 	},
 } satisfies ExportedHandler<Env>;
 
-function isCorrect(request: Request): boolean {
+function getAnswerIndexFromUrl(request: Request): number {
   const url = new URL(request.url);
-  const pattern = new URLPattern({ pathname: '/:result' });
+  const pattern = new URLPattern({ pathname: '/:index' });
   const match = pattern.exec(url);
   if (match) {
-    const result = match.pathname.groups.result;
-    return result === 'correct';
+    return parseInt(match.pathname.groups.index);
   }
-  return false;
+  throw new Error(`Invalid URL: ${request.url}`);
 }
 
 function corsAwareResponse(
