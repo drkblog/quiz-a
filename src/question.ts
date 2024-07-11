@@ -6,7 +6,7 @@ export interface QuizaQuestion {
   answer: number;
 }
 
-export async function retrieveQuestion(env: Env, key:number): Promise<QuizaQuestion> {
+export async function retrieveQuestion(env: Env, key: number): Promise<QuizaQuestion> {
   const jsonText: string | null = await env.KV_QUIZA_QUESTION.get(`${key}`);
   if (jsonText === null) {
     throw new QuestionNotFoundError(`Question not found for key: ${key}`);
