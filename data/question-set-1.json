@@ -1,15 +1,15 @@
 [
   {
     "key": "1",
-    "value": "{\"question\": \"¿Qué devuelve <code class=\\\"language-javascript\\\">typeof NaN</code> en JavaScript?\", \"options\": [\"number\", \"string\", \"undefined\", \"object\"], \"answer\": 0}"
+    "value": "{\"question\": \"¿Cuál la salida del siguiente código? <pre><code>const array = [5, 12, 8, 130, 4];\\nconst found = array.findLast(element => element > 10);\\nconsole.log(found);</code></pre>\", \"options\": [\"undefined\", \"null\", \"4\", \"130\", \"12\"], \"answer\": 3}"
   },
   {
     "key": "2",
-    "value": "{\"question\": \"¿Cuál de las siguientes es una forma correcta de crear un array?\", \"options\": [\"<code>var arr = {}</code>\", \"<code>var arr = ()</code>\", \"<code>var arr = []</code>\", \"<code>var arr = <></code>\"], \"answer\": 2}"
+    "value": "{\"question\": \"¿Qué devuelve <code class=\\\"language-javascript\\\">typeof NaN</code> en JavaScript?\", \"options\": [\"number\", \"string\", \"undefined\", \"object\"], \"answer\": 0}"
   },
   {
     "key": "3",
-    "value": "{\"question\": \"¿Cuál es el resultado de <code>2 + '2'</code> en JavaScript?\", \"options\": [\"22\", \"4\", \"NaN\", \"undefined\"], \"answer\": 0}"
+    "value": "{\"question\": \"¿Cuál de las siguientes es una forma correcta de crear un array?\", \"options\": [\"<code>var arr = {}</code>\", \"<code>var arr = ()</code>\", \"<code>var arr = []</code>\", \"<code>var arr = <></code>\"], \"answer\": 2}"
   },
   {
     "key": "4",
@@ -17,11 +17,11 @@
   },
   {
     "key": "5",
-    "value": "{\"question\": \"¿Cuál es el propósito del método <code>Array.prototype.map</code>?\", \"options\": [\"Mutar el array\", \"Ordenar el array\", \"Crear un nuevo array potencialmente modificando cada elemento\", \"Filtrar elementos\"], \"answer\": 2}"
+    "value": "{\"question\": \"¿Que imprime esta porción de código?<pre><code>const arr = ['a', 'b', 'c'];\\nconst it = arr.values();\\n\\nconsole.log([...it, ...it]);</code></pre>\", \"options\": [\"[ 'a', 'b', 'c', 'a', 'b', 'c' ]\", \"[ 'a', 'b', 'c' ]\", \"[]\", \"[ 'a', 'a', 'b', 'b', 'c', 'c' ]\"], \"answer\": 1}"
   },
   {
     "key": "6",
-    "value": "{\"question\": \"¿Qué método se utiliza para convertir una cadena JSON en un objeto JavaScript?\", \"options\": [\"JSON.stringify\", \"JSON.parse\", \"JSON.objectify\", \"JSON.convert\"], \"answer\": 1}"
+    "value": "{\"question\": \"¿Qué método se utiliza para convertir una cadena JSON en un objeto JavaScript?\", \"options\": [\"<code>JSON.stringify</code>\", \"<code>JSON.parse</code>\", \"<code>JSON.objectify</code>\", \"<code>JSON.convert</code>\"], \"answer\": 1}"
   },
   {
     "key": "7",
@@ -122,5 +122,81 @@
   {
     "key": "31",
     "value": "{\"question\": \"¿Qué método puedes usar para convertir un Map en un objeto en JavaScript?\", \"options\": [\"<code>Array.toObject()</code>\", \"<code>Array.prototype.toObject()</code>\", \"<code>Object.fromEntries()</code>\", \"<code>Array.prototype.entries()</code>\"], \"answer\": 2}"
+  },
+  {
+    "key": "32",
+    "value": "{\"question\": \"¿Cuál es el resultado de <code>2 + '2'</code> en JavaScript?\", \"options\": [\"22\", \"4\", \"NaN\", \"undefined\"], \"answer\": 0}"
+  },
+  {
+    "key": "33",
+    "value": "{\"question\": \"¿Cuál es el propósito del método <code>Array.prototype.map</code>?\", \"options\": [\"Mutar el array\", \"Ordenar el array\", \"Crear un nuevo array potencialmente modificando cada elemento\", \"Filtrar elementos\"], \"answer\": 2}"
+  },
+  {
+    "key": "34",
+    "value": "{\"question\": \"¿Cuál es el resultado del siguiente código?\\n<pre><code>console.log(1 + '1' - 1);</code></pre>\", \"options\": [\"<code>10</code>\", \"<code>11</code>\", \"<code>0</code>\", \"<code>'11'</code>\", \"<code>NaN</code>\"], \"answer\": 0}"
+  },
+  {
+    "key": "35",
+    "value": "{\"question\": \"¿Cuál de las siguientes NO es una forma válida de crear un nuevo objeto en JavaScript?\", \"options\": [\"<code>let obj = new Object();</code>\", \"<code>let obj = {};</code>\", \"<code>let obj = Object.create(null);</code>\", \"<code>let obj = Object.assign();</code>\", \"<code>let obj = Object.fromEntries([]);</code>\"], \"answer\": 3}"
+  },
+  {
+    "key": "36",
+    "value": "{\"question\": \"¿Cuál es el propósito del método <code>Object.is()</code> en JavaScript?\", \"options\": [\"Comprobar si dos valores son iguales de forma no estricta\", \"Comprobar si dos valores son estrictamente iguales\", \"Comprobar si dos valores son el mismo valor\", \"Comprobar si dos objetos tienen las mismas propiedades\"], \"answer\": 2}"
+  },
+  {
+    "key": "37",
+    "value": "{\"question\": \"¿Cuál es el resultado del siguiente código?\\n<pre><code>const arr = [1, 2, 3, 4, 5];\\nconsole.log(arr.slice(-2, -1));</code></pre>\", \"options\": [\"<code>[5]</code>\", \"<code>[4]</code>\", \"<code>[4, 5]</code>\", \"<code>[]</code>\"], \"answer\": 1}"
+  },
+  {
+    "key": "38",
+    "value": "{\"question\": \"¿Cuál de las siguientes NO es una forma válida de eliminar propiedades de un objeto en JavaScript?\", \"options\": [\"<code>delete obj.propiedad</code>\", \"<code>obj.propiedad = undefined</code>\", \"<code>Object.deleteProperty(obj, 'propiedad')</code>\", \"<code>Reflect.deleteProperty(obj, 'propiedad')</code>\"], \"answer\": 2}"
+  },
+  {
+    "key": "39",
+    "value": "{\"question\": \"¿Cuál es el resultado del siguiente código?\\n<pre><code>console.log([] == ![]);</code></pre>\", \"options\": [\"<code>true</code>\", \"<code>false</code>\", \"<code>undefined</code>\", \"<code>TypeError</code>\"], \"answer\": 0}"
+  },
+  {
+    "key": "40",
+    "value": "{\"question\": \"¿Cuál es el propósito del método <code>Object.freeze()</code> en JavaScript?\", \"options\": [\"Evitar que se añadan nuevas propiedades a un objeto\", \"Evitar que se modifiquen las propiedades existentes de un objeto\", \"Evitar que se eliminen propiedades de un objeto\", \"Todas las anteriores\"], \"answer\": 3}"
+  },
+  {
+    "key": "41",
+    "value": "{\"question\": \"¿Cuál es el resultado del siguiente código?\\n<pre><code>const obj = { a: 1 };\\nconst copia = Object.create(obj);\\ncopia.b = 2;\\nconsole.log(copia.a, copia.b, obj.b);</code></pre>\", \"options\": [\"<code>1 2 undefined</code>\", \"<code>1 2 2</code>\", \"<code>undefined 2 undefined</code>\", \"<code>1 undefined undefined</code>\"], \"answer\": 0}"
+  },
+  {
+    "key": "42",
+    "value": "{\"question\": \"¿Cuál de las siguientes NO es una forma válida de declarar una función asíncrona en JavaScript?\", \"options\": [\"<code>async function foo() {}</code>\", \"<code>const foo = async function() {}</code>\", \"<code>const foo = async () => {}</code>\", \"<code>function foo() {}.async()</code>\"], \"answer\": 3}"
+  },
+  {
+    "key": "43",
+    "value": "{\"question\": \"¿Cuál es el resultado del siguiente código?\\n<pre><code>console.log(5 && 2 && 0 && 8);</code></pre>\", \"options\": [\"<code>5</code>\", \"<code>2</code>\", \"<code>0</code>\", \"<code>8</code>\", \"<code>true</code>\"], \"answer\": 2}"
+  },
+  {
+    "key": "44",
+    "value": "{\"question\": \"¿Cuál es el propósito del método <code>Object.getOwnPropertySymbols()</code> en JavaScript?\", \"options\": [\"Obtener todas las propiedades símbolo de un objeto\", \"Obtener todas las propiedades enumerables de un objeto\", \"Obtener todas las propiedades no enumerables de un objeto\", \"Obtener todas las propiedades de un objeto, incluyendo símbolos\"], \"answer\": 0}"
+  },
+  {
+    "key": "45",
+    "value": "{\"question\": \"¿Cuál es el resultado del siguiente código?\\n<pre><code>const arr = [1, 2, 3, 4, 5];\\narr.length = 3;\\nconsole.log(arr);</code></pre>\", \"options\": [\"<code>[1, 2, 3, 4, 5]</code>\", \"<code>[1, 2, 3]</code>\", \"<code>[3, 4, 5]</code>\", \"<code>RangeError</code>\"], \"answer\": 1}"
+  },
+  {
+    "key": "46",
+    "value": "{\"question\": \"¿Cuál de las siguientes NO es una forma válida de crear una Promesa en JavaScript?\", \"options\": [\"<code>new Promise((resolve, reject) => {})</code>\", \"<code>Promise.resolve(valor)</code>\", \"<code>Promise.reject(razón)</code>\", \"<code>Promise.create(() => {})</code>\"], \"answer\": 3}"
+  },
+  {
+    "key": "47",
+    "value": "{\"question\": \"¿Cuál es el resultado del siguiente código?\\n<pre><code>const obj = { a: 1, b: 2 };\\nconst { a, ...resto } = obj;\\nconsole.log(resto);</code></pre>\", \"options\": [\"<code>{ a: 1 }</code>\", \"<code>{ b: 2 }</code>\", \"<code>{ a: 1, b: 2 }</code>\", \"<code>{}</code>\"], \"answer\": 1}"
+  },
+  {
+    "key": "48",
+    "value": "{\"question\": \"¿Cuál es el propósito del método <code>Object.preventExtensions()</code> en JavaScript?\", \"options\": [\"Evitar que se añadan nuevas propiedades a un objeto\", \"Evitar que se modifiquen las propiedades existentes de un objeto\", \"Evitar que se eliminen propiedades de un objeto\", \"Todas las anteriores\"], \"answer\": 0}"
+  },
+  {
+    "key": "49",
+    "value": "{\"question\": \"¿Cuál es el resultado del siguiente código?\\n<pre><code>const arr = [1, 2, 3];\\nconsole.log(arr['0']);</code></pre>\", \"options\": [\"<code>1</code>\", \"<code>undefined</code>\", \"<code>0</code>\", \"<code>TypeError</code>\"], \"answer\": 0}"
+  },
+  {
+    "key": "50",
+    "value": "{\"question\": \"¿Cuál de las siguientes NO es una forma válida de clonar un objeto en JavaScript?\", \"options\": [\"<code>Object.assign({}, obj)</code>\", \"<code>{...obj}</code>\", \"<code>JSON.parse(JSON.stringify(obj))</code>\", \"<code>Object.clone(obj)</code>\"], \"answer\": 3}"
   }
 ]
