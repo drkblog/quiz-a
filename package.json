@@ -1,7 +1,9 @@
 {
   "name": "quiz-a",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
+  "author": "Leandro Hernan Fernandez",
+  "license": "MIT OR Apache-2.0",
   "scripts": {
     "deploy": "wrangler deploy",
     "dev": "wrangler dev",
