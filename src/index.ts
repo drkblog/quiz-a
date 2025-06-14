@@ -50,9 +50,7 @@ export default {
     if (request.method === 'PUT') {
       const answer: number = getAnswerIndexFromUrl(request);
       const sessionData = await getSessionPublicData(env, cookieHeader, sessionManager);
-      console.debug(sessionData);
       const answerResult: AnswerResult = await state.check(env, answer, sessionData);
-      console.debug(answerResult);
       return corsHelper.createCorsAwareResponse(request, JSON.stringify(answerResult), HTTP_CODE.HTTP_OK, JSON_UTF8, createQuizaCookie(state, getWorkerDomain(env.WORKER_ENV)));
     } else {
       try {
