@@ -1,11 +1,14 @@
 import { Env } from "./quiza";
 import { QuizaQuestion, retrieveQuestion } from "./question";
+import { PublicSessionData } from "drksession";
+import { parseCookies } from "./cookies/cookies";
 
 const QUIZA_COOKIE = 'quizA-1';
 
 export interface AnswerResult {
   isCorrect: boolean,
-  correctIndex: number
+  correctIndex: number,
+  user: string | undefined
 }
 
 export class QuizaState {
@@ -19,13 +22,14 @@ export class QuizaState {
     this.total = total;
   }
 
-  async check(env: Env, answer: number): Promise<AnswerResult> {
+  async check(env: Env, answer: number, sessionData: PublicSessionData | null): Promise<AnswerResult> {
     const quizQuestion: QuizaQuestion = await retrieveQuestion(env, this.key);
     this.total++;
     this.key++;
     const result: AnswerResult = {
       isCorrect: (answer === quizQuestion.answer),
-      correctIndex: quizQuestion.answer
+      correctIndex: quizQuestion.answer,
+      user: sessionData?.displayName
     };
     if (result.isCorrect) {
       this.correct++;
@@ -38,7 +42,6 @@ export function retrieveState(env: Env, cookieHeader: string) {
   const cookies = parseCookies(cookieHeader);
   return retrieveQuizaCookieIfExists(env, cookies);
 }
-
 
 export function createQuizaCookie(state: QuizaState, domain: string): string {
   const cookieName = QUIZA_COOKIE;
@@ -57,18 +60,4 @@ function retrieveQuizaCookieIfExists(env: Env, cookies: { [key: string]: string 
   }
   const { key, correct, total } = JSON.parse(cookies[QUIZA_COOKIE]);
   return new QuizaState(key, correct, total);;
-}
-
-function parseCookies(cookieHeader: string): { [key: string]: string } {
-  const cookies: { [key: string]: string } = {};
-  const pairs = cookieHeader.split(/;\s*/);
-  
-  pairs.forEach(pair => {
-    const [name, value] = pair.split('=');
-    if (name && value) {
-      cookies[decodeURIComponent(name.trim())] = decodeURIComponent(value.trim());
-    }
-  });
-
-  return cookies;
 }
