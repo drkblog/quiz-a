@@ -3,9 +3,9 @@ name = "quiz-a"
 main = "src/index.ts"
 compatibility_date = "2024-07-01"
 compatibility_flags = ["nodejs_compat"]
-type = "javascript"
 
 kv_namespaces = [
+  { binding = "DRK_SESSION", preview_id = "c836363f2583430993ec352e0f289b57", id = "1ccf248aef6b46288d1fa67589f54bab" },
   { binding = "KV_QUIZA_QUESTION", preview_id = "ec42072d54f84e93831c3e3e119bc525", id = "7d2a037cabab45d69b91c20a11f0010b" }
 ]
 
